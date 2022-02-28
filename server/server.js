@@ -4,8 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const OfficeRoutes = require('./routes/Office-routes.js');
 const app = express();
-// const port = process.env.PORT;
-const port =3005;
+const port = process.env.PORT || 3005;
+// const port =3005;
 
 
 app.use(express.json());
