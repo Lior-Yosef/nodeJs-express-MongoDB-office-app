@@ -1,0 +1,21 @@
+GET http://localhost:3005/office
+
+###
+
+GET http://localhost:3005/office/1
+
+
+###
+
+POST http://localhost:3005/office
+
+Content-Type: application/json
+{
+    "office":
+    {
+        "firstName":"LIOR",
+        "lastName":"YOSEF",
+        "email":"lior@gmail.com",
+        "age":24
+    }
+}
