@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CONNECTION_STRING = process.env.CONNECTION_STRING;
+const CONNECTION_STRING = process.env.CONATION_STRING;
 // const CONNECTION_STRING = "mongodb+srv://LiorYosef:LiorYosef12@office-db.aqaye.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose.connect(CONNECTION_STRING,
