@@ -1,3 +1,6 @@
+// תפקידו של הפספורט הוא לבדוק אם הטוקן בתוקף במידה 
+// וכן כל הפעולות בשרת היו אפשריות במידה ולא בתוקף הוא חוסם את הגישה לשרת
+
 // ייבוא ראשון זה איך לפענח את המידע (Strategy)
 // ייבוא שני זה לחלץ את המידע (ExtractJwt)
 
@@ -14,12 +17,13 @@ options.jwtFromRequest = jwt_ExtractJwt.fromAuthHeaderAsBearerToken(); // פונ
 module.exports = (passport) => {
     passport.use(
         new jwt_Strategy(options, (jwt_payload, done) => { // פרמטר שני בקולבק הוא האובייקט של המשתמש אחרי זה יש לנו את פונקציית הדאן 
-            users.findOne({ _id: jwt_payload._id })
+            console.log(jwt_payload);
+            users.findById( jwt_payload.User._id)
                 .then(user => {
-                    if (user) done(null, user);
+                    if (user) return done(null, user);
                     done(null, false);
                 })
-                .catch(err => done(err, false));
+                .catch(err => console.log(err));
         })
     )       
 }
